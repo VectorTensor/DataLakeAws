@@ -1,0 +1,27 @@
+
+# Ignore Terraform state files and backups
+*.tfstate
+*.tfstate.*
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl
+
+# Ignore Terraform configuration directory
+.terraform/
+
+# Ignore crash logs
+crash.log
+crash.*
+
+# Ignore sensitive files (e.g., environment-specific variables)
+*.tfvars
+*.tfvars.json
+
+# Ignore plan files
+*.tfplan
+
+# Ignore any archives or compressed files
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tgz

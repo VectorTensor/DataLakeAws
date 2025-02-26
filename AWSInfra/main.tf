@@ -24,7 +24,7 @@ resource "aws_s3_bucket" "bronze" {
 }
 
 resource "aws_s3_bucket" "silver" {
-  bucket = "refined-zone-p64"
+  bucket = "cleaned-zone-p64"
   force_destroy = true
   tags = {
     Owner = var.owner_name

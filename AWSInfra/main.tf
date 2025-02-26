@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-1"
+  region  = "us-east-2"
 }
 
 resource "aws_s3_bucket" "bronze" {
@@ -40,6 +40,23 @@ resource "aws_s3_bucket" "gold" {
   }
 }
 
+data "aws_ami" "ubuntu_ami" {
 
+  most_recent = true
+  owners = ["amazon"]
+  filter {
+    name = "name"
+    values = ["ubuntu*"]
+  }
+
+}
+
+resource "aws_instance" "dev" {
+  ami = data.aws_ami.ubuntu_ami.id
+  instance_type = "t2.micro"
+  tags = {
+    Owner = var.owner_name
+  }
+}
 
 
